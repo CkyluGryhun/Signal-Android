@@ -1,5 +1,5 @@
-name: Reproduce the apk file
-run-name: ${{ github.actor }} is using GitHub Actions 🚀 to generate the apk package 
+name: Reproduce the v6.31.2 apk files
+run-name: ${{ github.actor }} is using GitHub Actions 🚀 to generate the apk packages
 
 permissions:
   contents: read # to fetch code (actions/checkout)
@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v6.31.2
     - name: Build image
       run: cd reproducible-builds && docker build -t signal-android . && cd ..
 
