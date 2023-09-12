@@ -1,0 +1,5 @@
+name: Reproduce the apk file
+run-name: ${{ github.actor }} is using GitHub Actions 🚀 to generate the apk package 
+on: [push]
+jobs:
+  
