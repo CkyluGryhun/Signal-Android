@@ -1,5 +1,20 @@
 name: Reproduce the apk file
 run-name: ${{ github.actor }} is using GitHub Actions 🚀 to generate the apk package 
+
+permissions:
+  contents: read # to fetch code (actions/checkout)
+
 on: [push]
+
 jobs:
-  
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build image
+      run: cd reproducible-builds && docker build -t signal-android . && cd ..
+
+    - name: Test build
+      run: docker run --rm -v $(pwd):/project -w /project signal-android ./gradlew clean assemblePlayProdRelease
