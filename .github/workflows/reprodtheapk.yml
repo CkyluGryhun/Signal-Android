@@ -12,7 +12,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v6.31.2
+    - uses: actions/checkout@v4
+      with:
+        ref: v6.31.2
     - name: Build image
       run: cd reproducible-builds && docker build -t signal-android . && cd ..
 
