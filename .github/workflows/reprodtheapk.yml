@@ -15,6 +15,16 @@ jobs:
     - uses: actions/checkout@v4
       with:
         ref: v6.31.2
+
+    - name: Show username
+      run: whoami
+
+    - name: Show .git owner
+      run: ls -al ./
+
+    - name: Show parent folder owner
+      run: ls -al ./
+      
     - name: Build image
       run: cd reproducible-builds && docker build -t signal-android . && cd ..
 
